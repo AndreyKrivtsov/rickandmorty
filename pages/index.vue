@@ -11,7 +11,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.content {
-    _color: rgb(42, 57, 88);
-}
 </style>

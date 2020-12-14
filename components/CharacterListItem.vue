@@ -26,7 +26,7 @@ export default {
     border-radius: 1em;
     width: 600px;
     height: 200px;
-    margin: 30px 15px 0 15px;
+    margin: 0 20px 20px 0;
     text-align: center;
     overflow: hidden;
     cursor: pointer;
@@ -39,6 +39,10 @@ export default {
     &:active {
         border: 1px solid #888;
         box-shadow: 0 0 6px #777;
+    }
+
+    .list-item__image {
+        height: 200px;
     }
 
     .list-item__title {
@@ -55,16 +59,30 @@ export default {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     .list-item {
-        width: 400px;
-        height: 100px;
-        margin: 30px auto;
-        box-sizing: border-box;
+        width: 500px;
+        height: 150px;
+        margin: 0 auto 20px auto;
 
         .list-item__image {
-            height: 200px;
-            box-sizing: border-box;
+            height: 150px;
+        }
+
+        .list-item__title-text {
+            padding: 10px;
+            margin: 10px;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .list-item {
+        .list-item__title-text {
+            padding: 0 !important;
+            margin: 10px !important;
+            font-size: 1.3rem;
         }
     }
 }

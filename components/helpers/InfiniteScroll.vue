@@ -1,5 +1,5 @@
 <template>
-    <div class="infinite-scroll">
+    <div v-if="!disabled" class="infinite-scroll">
         <div class="infinite-scroll__loader" v-if="state">Loading...</div>
     </div>
 </template>
@@ -12,6 +12,10 @@ export default {
             default: 400,
             type: Number,
         },
+        disabled: {
+            default: true,
+            type: Boolean,
+        }
     },
     data() {
         return {
@@ -25,6 +29,7 @@ export default {
             const body = document.querySelector("body");
 
             document.addEventListener("scroll", (e) => {
+                if (this.disabled) return
                 const bottom =
                     e.target.scrollingElement.scrollHeight - this.areaHeight;
                 const position =

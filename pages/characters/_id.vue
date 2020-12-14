@@ -10,7 +10,7 @@
                     <h1 class="character-info__title-name">
                         {{ character.name }}
                     </h1>
-                    <div class="character-info__title-status">
+                    <div>
                         <span v-if="character.status === 'Alive'" class="character-info_green">
                             {{ character.status }}
                         </span>
@@ -61,7 +61,6 @@ export default {
 .character {
     display: flex;
     justify-content: center;
-    _align-items: center;
     margin: 30px 20px;
 
     .character-image-wrapper {
@@ -81,10 +80,8 @@ export default {
         width: 500px;
 
         .character-info__title {
-            _padding-bottom: 20px;
-
             .character-info__title-name {
-                font-size: 50px;
+                font-size: 3rem;
             }
         }
 
@@ -102,6 +99,29 @@ export default {
 
         .character-info_red {
             color: rgb(175, 38, 38);
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .character {
+        flex-wrap: wrap;
+        margin: 30px 20px;
+
+        .character-image-wrapper {
+            margin: 0 15px;
+        }
+
+        .character-info {
+            padding: 20px 20px 10px 20px;
+            width: 400px;
+            text-align: center;
+
+            .character-info__title {
+                .character-info__title-name {
+                    font-size: 1.6rem;
+                }
+            }
         }
     }
 }

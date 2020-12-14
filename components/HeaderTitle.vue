@@ -1,4 +1,4 @@
-<template>
+<template functional>
     <h1 class="header-title">The Rick and Morty</h1>
 </template>
 
@@ -21,9 +21,15 @@ export default {
     letter-spacing: 1px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   .header-title {
     font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header-title {
+    font-size: 30px;
   }
 }
 </style>

@@ -17,7 +17,7 @@ export default {
     margin: auto;
 
     .logo-image {
-        width: 100px;
+        width: 100%;
         animation: 1s appear;
         margin: auto;
     }
@@ -26,6 +26,14 @@ export default {
         0% {
             opacity: 0;
         }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header-logo {
+        width: 100px;
+        height: 100px;
+        margin: auto;
     }
 }
 </style>

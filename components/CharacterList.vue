@@ -1,16 +1,13 @@
 <template>
     <div class="character-list">
         <template v-if="list.length">
-
             <CharacterListItem
                         v-for="item in list" 
                         :key="item.id" 
                         :item="item" 
                         @selected="selectCharacter($event)"
             />
-
-            <InfiniteScroll @infinite="getMore()"/>
-
+            <InfiniteScroll @infinite="getMore()" :disabled="disabled"/>
         </template>
     </div>
 </template>
@@ -31,6 +28,9 @@ export default {
             set(value) {
                 this.$store.commit('characters/setPage', value)
             }
+        },
+        disabled() {
+            return Number(this.page) === Number(this.$store.state.characters.info.pages)
         }
     },
     methods: {
@@ -40,9 +40,6 @@ export default {
         getMore() {
             this.$store.dispatch('characters/getMore')
         },
-        test() {
-            console.log('scroll')
-        }
     },
     mounted() {
         this.getMore()
@@ -56,7 +53,8 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0 20px;
 }
 </style>

@@ -13,10 +13,12 @@ export const actions = {
         commit('setCharacter', result.data)
     },
     async getMore({ state, commit }) {
-        if (!state.list.length) commit('setPage', 0)
+        if (!state.list.length) commit('setPage', 1)
+        else if (state.page !== state.info.pages) {
+            commit('nextPage')
+        }
         const result = await Api.getList(this, state.page)
         commit('setList', result.data)
-        commit('setPage', state.page + 1)
     },
 }
 
@@ -28,12 +30,12 @@ export const mutations = {
         for(const item of data.results) {
             state.list.push(item)
         }
-        
-    },
-    setInfo(state, data) {
         state.info = data.info
     },
     setPage(state, page) {
         state.page = page
+    },
+    nextPage(state) {
+        state.page++
     }
 }
